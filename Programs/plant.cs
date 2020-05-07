@@ -1,15 +1,15 @@
 using System;
 using System.Collections.Generic;
 
-namespace Plant.Program
+namespace Plant.GrowPlant
 {
   public class Grow
   {
-    private int _age;
-    private int _size;
-    private int _health;
+    public int _age { get; set; }
+    public int _size { get; set; }
+    public int _health { get; set; }
 
-    public Plant()
+    public Grow()
     {
       _age = 0;
       _size = 0;
@@ -18,30 +18,32 @@ namespace Plant.Program
     public string Water()
     {
       _size += 1;
-      if (_health == 15)
+      if (_health == 20)
       {
         return "Your plant is already healthy!";
       }
       else
       {
         _health += 1;
+        return "You've watered your plant. It looks a little healthier.";
       }
     }
     public string Feed()
     {
-      if (_health == 15)
+      if (_health == 20)
       {
         return "Your plant is fully fed!";
       }
       else
       {
-        _health += 1;
+        _health += 2;
         _size += 1;
+        return "You fed your plant. It looks a little healthier and a little bigger.";
       }
     }
     public string GiveSunshine()
     {
-      if (_health == 15)
+      if (_health == 20)
       {
         return "Your plant has had enough sunshine!";
       }
@@ -49,6 +51,7 @@ namespace Plant.Program
       {
         _health += 1;
         _size += 1;
+        return "You've moved your plant into the sun. It looks a little healthier and a little bigger.";
       }
     }
     public string AgePlant()
@@ -60,6 +63,8 @@ namespace Plant.Program
       else
       {
         _age += 1;
+        _health -= 1;
+        return "Your plant has grown.";
 
       }
     }
